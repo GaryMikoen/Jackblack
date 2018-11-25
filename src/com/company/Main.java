@@ -9,9 +9,11 @@ public class Main {
         Card card2 = new Card(3,3);
 
         Player player1 = new Player();
+        System.out.println("Grab cards");
         player1.getCard1();
         player1.getCard2();
         player1.showHand();
+        player1.calculatePointsInHand();
 
 
     }
