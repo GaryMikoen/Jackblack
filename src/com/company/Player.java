@@ -3,8 +3,7 @@ package com.company;
 import java.util.ArrayList;
 
 public class Player {
-    private String card1;
-    private String card2;
+
     private ArrayList<Card> hand = new ArrayList();
     private int valueInhand;
 
@@ -15,32 +14,59 @@ public class Player {
     public void getCard(Deck deck){
         System.out.println("Player grabs a card");
         Card card = deck.getCardFromDeck();
-        System.out.println(card.getCardValue());
-        System.out.println(card.getSuitValue());
-
+        hand.add(card);
     }
 
-    /*
-    public void getCard2(){
-        System.out.println("Player grabs his second card");
-        Card card2 = new Card(3,3);
-        hand.add(card2);
-    }
 
     public void showHand(){
         System.out.println("player has the following cards");
         for(int i = 0; i<=hand.size()-1; i++ ){
-            hand.get(i).showCard();
+            System.out.println(hand.get(i).getCardValue() + hand.get(i).getSuitValue());
         }
     }
 
-    public void calculatePointsInHand(){
+    public int calculatePointsInHand() {
         int value = 0;
-        for(int i = 0; i<=hand.size()-1; i++){
-            System.out.println(hand.get(i).getPoint());
-            value += hand.get(i).getPoint();
+        for (int i = 0; i <= hand.size() - 1; i++) {
+            switch (hand.get(i).getPoint()) {
+                case "A":
+                    value += 1;
+                    break;
+                case "2":
+                    value += 2;
+                    break;
+                case "3":
+                    value += 3;
+                    break;
+                case "4":
+                    value += 4;
+                    break;
+                case "5":
+                    value += 5;
+                    break;
+                case "6":
+                    value += 6;
+                    break;
+                case "7":
+                    value += 7;
+                    break;
+                case "8":
+                    value += 8;
+                    break;
+                case "9":
+                    value += 9;
+                    break;
+                case "10":
+                    value += 10;
+                case "JACK":
+                    value += 10;
+                    break;
+                case "QUEEN":
+                    value += 10;
+                case "KING":
+                    value += 10;
+            }
         }
-        System.out.println(value);
+        return value;
     }
-    */
 }

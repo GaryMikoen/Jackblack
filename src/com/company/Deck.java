@@ -11,7 +11,7 @@ public class Deck {
     private ArrayList<Card> deck = new ArrayList();
 
     public Deck() {
-
+        System.out.println("Deck is being created");
     }
 
     public void getCardsInDeck(){
@@ -30,12 +30,15 @@ public class Deck {
     }
 
     public void shuffleDeck(){
+        System.out.println("Deck is being shuffled");
         Collections.shuffle(deck);
     }
 
     public Card getCardFromDeck(){
         Card card = deck.get(0);
+        deck.remove(0);
         return card;
     }
+
 
 }
