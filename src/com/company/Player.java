@@ -10,15 +10,17 @@ public class Player {
 
     public Player() {
 
+    }
+
+    public void getCard(Deck deck){
+        System.out.println("Player grabs a card");
+        Card card = deck.getCardFromDeck();
+        System.out.println(card.getCardValue());
+        System.out.println(card.getSuitValue());
 
     }
 
-    public void getCard1(){
-        System.out.println("Player grabs his first card");
-        Card card1 = new Card(1, 2);
-        hand.add(card1);
-    }
-
+    /*
     public void getCard2(){
         System.out.println("Player grabs his second card");
         Card card2 = new Card(3,3);
@@ -40,4 +42,5 @@ public class Player {
         }
         System.out.println(value);
     }
+    */
 }

@@ -3,22 +3,28 @@ package com.company;
 public class Card {
     private static String[] cardArray = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "JACK", "QUEEN", "KING"};
     private static String[] suitArray = {"♠", "♥", "♣", "♦"};
-    private int cardNumber ;
-    private int suitNumber ;
+    private String card ;
+    private String suit ;
 
-    public Card(int card, int suit) {
-        this.cardNumber = card;
-        this.suitNumber = suit;
+    public Card(String suit, String card) {
+        this.suit = suit;
+        this.card = card;
     }
-
-
-
+    /*
     public void showCard(){
-        System.out.println(cardArray[cardNumber] + suitArray[suitNumber]);
+        System.out.println(cardArray[card] + suitArray[suit]);
+    }
+    */
+    public String getPoint(){
+        return card;
     }
 
-    public int getPoint(){
-        return cardNumber;
+    public String getCardValue(){
+        return card;
+    }
+
+    public String getSuitValue(){
+        return suit;
     }
 
 }
