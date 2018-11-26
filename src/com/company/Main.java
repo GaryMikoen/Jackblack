@@ -15,6 +15,7 @@ public class Main {
         player1.showHand();
         player1.calculatePointsInHand();
 
-
+        Deck deck1 = new Deck();
+        deck1.getCards();
     }
 }

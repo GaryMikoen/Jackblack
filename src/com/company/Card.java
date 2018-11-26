@@ -11,6 +11,8 @@ public class Card {
         this.suitNumber = suit;
     }
 
+
+
     public void showCard(){
         System.out.println(cardArray[cardNumber] + suitArray[suitNumber]);
     }
