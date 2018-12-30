@@ -37,9 +37,8 @@ public class Deck {
     public Card getCardFromDeck(){
         Card card = deck.get(0);
         deck.remove(0);
-        System.out.println("Player grabs a " + card.getCardValue() + card.getSuitValue());
+        System.out.println("It's " + card.getCardValue() + card.getSuitValue());
         return card;
     }
-
 
 }

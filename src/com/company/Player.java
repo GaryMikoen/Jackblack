@@ -13,17 +13,18 @@ public class Player {
     }
 
     public void getCard(Deck deck){
-        System.out.println("Player grabs a card");
+        System.out.println(name + " grabs a card");
         Card card = deck.getCardFromDeck();
         hand.add(card);
     }
 
 
     public void showHand(){
-        System.out.println("player has the following cards");
+        System.out.println(name + " has the following cards");
         for(int i = 0; i<=hand.size()-1; i++ ){
             System.out.println(hand.get(i).getCardValue() + hand.get(i).getSuitValue());
         }
+        System.out.println(calculatePointsInHand());
     }
 
     public void playerBehavior(){
