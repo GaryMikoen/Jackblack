@@ -10,11 +10,7 @@ public class Card {
         this.suit = suit;
         this.card = card;
     }
-    /*
-    public void showCard(){
-        System.out.println(cardArray[card] + suitArray[suit]);
-    }
-    */
+
     public String getPoint(){
         return card;
     }
