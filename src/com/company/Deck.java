@@ -24,9 +24,11 @@ public class Deck {
     }
 
     public void showDeck() {
+        ArrayList<String> cardsInDeck = new ArrayList<>();
         for (int i = 0; i <= deck.size() - 1; i++) {
-            System.out.println(deck.get(i).getCardValue() + deck.get(i).getSuitValue());
+            cardsInDeck.add(deck.get(i).getCardAndSuit());
         }
+        System.out.println(String.join(", ", cardsInDeck));
     }
 
     public void shuffleDeck(){

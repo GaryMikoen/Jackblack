@@ -9,10 +9,6 @@ public class Card {
         this.card = card;
     }
 
-    public String getPoint(){
-        return card;
-    }
-
     public String getCardValue(){
         return card;
     }

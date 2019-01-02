@@ -38,7 +38,7 @@ public class Player {
     public int calculatePointsInHand() {
         int value = 0;
         for (int i = 0; i <= hand.size() - 1; i++) {
-            switch (hand.get(i).getPoint()) {
+            switch (hand.get(i).getCardValue()) {
                 case "A":
                     value += 1;
                     break;
