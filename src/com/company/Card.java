@@ -23,4 +23,8 @@ public class Card {
         return suit;
     }
 
+    public String getCardAndSuit(){
+        String cardAndSuit = card + suit;
+        return cardAndSuit;
+    }
 }

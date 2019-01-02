@@ -5,26 +5,30 @@ import java.util.ArrayList;
 public class Player {
 
     private ArrayList<Card> hand = new ArrayList();
-    private int valueInhand;
     private String name;
 
     public Player(String name) {
         this.name = name;
     }
 
-    public void getCard(Deck deck){
-        System.out.println(name + " grabs a card");
-        Card card = deck.getCardFromDeck();
-        hand.add(card);
+    public String getName() {
+        return name;
     }
 
+    public void getCard(Deck deck){
+        Card card = deck.getCardFromDeck();
+        hand.add(card);
+        System.out.println(name + " grabbed " + card.getSuitValue() + card.getCardValue() );
+    }
 
     public void showHand(){
         System.out.println(name + " has the following cards");
+        ArrayList<String> cardsInHand = new ArrayList<>();
         for(int i = 0; i<=hand.size()-1; i++ ){
-            System.out.println(hand.get(i).getCardValue() + hand.get(i).getSuitValue());
+            cardsInHand.add(hand.get(i).getCardAndSuit());
         }
-        System.out.println(calculatePointsInHand());
+        System.out.println(String.join(", ", cardsInHand));
+        System.out.println("A total of " + calculatePointsInHand() + " points");
     }
 
     public void playerBehavior(){
