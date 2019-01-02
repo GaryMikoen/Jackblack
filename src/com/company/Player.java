@@ -15,6 +15,7 @@ public class Player {
         return name;
     }
 
+
     public void getCard(Deck deck){
         Card card = deck.getCardFromDeck();
         hand.add(card);
@@ -29,11 +30,6 @@ public class Player {
         }
         System.out.println(String.join(", ", cardsInHand));
         System.out.println("A total of " + calculatePointsInHand() + " points");
-    }
-
-    public void playerBehavior(){
-        int pointsInHand = 0;
-        pointsInHand = calculatePointsInHand();
     }
 
     public int calculatePointsInHand() {

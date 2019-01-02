@@ -9,25 +9,51 @@ public class Main {
         System.out.println();
 
         //Create deck
-        Deck deck1 = new Deck();
-        deck1.getCardsInDeck();
-        deck1.shuffleDeck();
+        Deck deck = new Deck();
+        deck.getCardsInDeck();
+        deck.shuffleDeck();
         System.out.println();
 
         //Dealer starts the game and grabs a card
         System.out.println("Dealer starts the game");
-        Player player2 = new Player("Dealer");
-        player2.getCard(deck1);
+        Player dealer = new Player("Dealer");
+        dealer.getCard(deck);
 
         //Players turn and grabs 2 cards to start
         System.out.println();
         System.out.println(playerName + " starts now");
-        Player player1 = new Player(playerName);
-        player1.getCard(deck1);
-        player1.getCard(deck1);
+        Player player = new Player(playerName);
+        player.getCard(deck);
+        player.getCard(deck);
 
-        //player interaction
-        hitMe(player1, deck1);
+        //Player interaction
+        blackjack(player,deck);
+        hitPlayer(player, deck);
+
+        //Dealer plays
+        System.out.println();
+        System.out.println("Dealer needs to beat " + player.calculatePointsInHand());
+        dealer.showHand();
+        hitDealer(dealer, player, deck);
+    }
+
+    private static void blackjack(Player player, Deck deck) {
+    }
+
+    private static void hitDealer(Player dealer, Player player,Deck deck) {
+        if (dealer.calculatePointsInHand()<=player.calculatePointsInHand()){
+            dealer.getCard(deck);
+            bust(dealer, deck);
+            hitDealer(dealer, player, deck);
+        }
+        else if(dealer.calculatePointsInHand() == player.calculatePointsInHand() && dealer.calculatePointsInHand() > 17){
+            System.out.println("Push! " + dealer.getName() + " & " + player.getName() + "draw with " + dealer.calculatePointsInHand() + " points" );
+        }
+        else {
+            dealer.showHand();
+            System.out.println();
+            System.out.println(dealer.getName() + " beats the " + player.calculatePointsInHand() + " points of " + player.getName() + " with " + dealer.calculatePointsInHand() + " points");
+        }
 
     }
 
@@ -38,7 +64,7 @@ public class Main {
         return name;
     }
 
-    public static void hitMe(Player player, Deck deck){
+    public static void hitPlayer(Player player, Deck deck){
         player.showHand();
         System.out.println();
         Scanner hit = new Scanner(System.in);
@@ -47,9 +73,10 @@ public class Main {
         if (hitOrStay.equals("y")){
             player.getCard(deck);
             bust(player, deck);
+            hitPlayer(player, deck);
         }
         else if(hitOrStay.equals("n")){
-            System.out.println("player stays");
+            System.out.println("Player stays");
         }
     }
 
@@ -58,10 +85,8 @@ public class Main {
         if (player.calculatePointsInHand() > bustNumber){
             player.showHand();
             System.out.println(player.getName() + " busted with " + player.calculatePointsInHand() + " points in hand!");
-        }
-        else {
-            player.showHand();
-            hitMe(player, deck);
+            System.exit(0);
         }
     }
+
 }
