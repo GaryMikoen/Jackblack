@@ -33,7 +33,7 @@ public class Main {
         //Dealer plays
         System.out.println();
         System.out.println("Dealer needs to beat " + player.calculatePointsInHand());
-        dealer.showHand();
+        dealer.getCard(deck);
         hitDealer(dealer, player, deck);
     }
 
@@ -44,7 +44,8 @@ public class Main {
                     player.getHand().get(1).getCardValue().equals("JACK")    ||
                     player.getHand().get(1).getCardValue().equals("QUEEN")   ||
                         player.getHand().get(1).getCardValue().equals("KING")){
-                    System.out.println("blackjack!!!!!! winning");
+                    System.out.println("Blackjack!!!!!! BI-winning, tigerblood!");
+                    System.out.println(player.getName() + " won the game with the cards " + player.getHand().get(0).getCardAndSuit() + " " + player.getHand().get(1).getCardAndSuit());
                     System.exit(0);
                 }
                 break;
@@ -53,7 +54,8 @@ public class Main {
             case "QUEEN":
             case "KING":
                 if(player.getHand().get(1).getCardValue().equals("A")){
-                    System.out.println("blackjack!!!!!! winning");
+                    System.out.println("Blackjack!!!!!! BI-winning, tigerblood!");
+                    System.out.println(player.getName() + " won the game with the cards " + player.getHand().get(0).getCardAndSuit() + " " + player.getHand().get(1).getCardAndSuit());
                     System.exit(0);
                 }
                 break;
@@ -63,6 +65,7 @@ public class Main {
     }
 
     private static void hitDealer(Player dealer, Player player,Deck deck) {
+        blackjack(dealer, deck);
         if (dealer.calculatePointsInHand()<=player.calculatePointsInHand()){
             dealer.getCard(deck);
             bust(dealer, deck);
@@ -90,7 +93,7 @@ public class Main {
         player.showHand();
         System.out.println();
         Scanner hit = new Scanner(System.in);
-        System.out.println("Hit or Stay y/n?");
+        System.out.println("Press y to Hit or n to Stay y/n?");
         String hitOrStay = hit.nextLine();
         if (hitOrStay.equals("y")){
             player.getCard(deck);
