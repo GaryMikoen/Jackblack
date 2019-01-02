@@ -38,6 +38,28 @@ public class Main {
     }
 
     private static void blackjack(Player player, Deck deck) {
+        switch(player.getHand().get(0).getCardValue()){
+            case "A":
+                if( player.getHand().get(1).getCardValue().equals("10")      ||
+                    player.getHand().get(1).getCardValue().equals("JACK")    ||
+                    player.getHand().get(1).getCardValue().equals("QUEEN")   ||
+                        player.getHand().get(1).getCardValue().equals("KING")){
+                    System.out.println("blackjack!!!!!! winning");
+                    System.exit(0);
+                }
+                break;
+            case "10":
+            case "JACK":
+            case "QUEEN":
+            case "KING":
+                if(player.getHand().get(1).getCardValue().equals("A")){
+                    System.out.println("blackjack!!!!!! winning");
+                    System.exit(0);
+                }
+                break;
+                default:
+                    break;
+        }
     }
 
     private static void hitDealer(Player dealer, Player player,Deck deck) {

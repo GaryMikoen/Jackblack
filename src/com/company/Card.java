@@ -1,8 +1,6 @@
 package com.company;
 
 public class Card {
-    private static String[] cardArray = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "JACK", "QUEEN", "KING"};
-    private static String[] suitArray = {"♠", "♥", "♣", "♦"};
     private String card ;
     private String suit ;
 

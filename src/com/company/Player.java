@@ -15,6 +15,9 @@ public class Player {
         return name;
     }
 
+    public ArrayList<Card> getHand() {
+        return hand;
+    }
 
     public void getCard(Deck deck){
         Card card = deck.getCardFromDeck();
